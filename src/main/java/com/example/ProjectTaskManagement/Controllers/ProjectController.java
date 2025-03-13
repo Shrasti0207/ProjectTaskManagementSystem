@@ -28,19 +28,19 @@ public class ProjectController {
     }
 
     // This method retrieves a project by its ID.
-    @GetMapping("{projectId}")
+    @GetMapping("/{projectId}")
     public ResponseEntity<Project> getProjectByProjectId(@PathVariable Long projectId){
         return ResponseEntity.ok(projectService.getProjectByProjectId(projectId));
     }
 
     // This method updates a project.
-    @PutMapping("{projectId}")
+    @PutMapping("/{projectId}")
     public ResponseEntity<Project> updateProject(@PathVariable Long projectId,@RequestBody Project updatedProject){
         return ResponseEntity.ok(projectService.updateProject(projectId, updatedProject));
     }
 
     // This method deletes a project.
-    @DeleteMapping("{projectId}")
+    @DeleteMapping("/{projectId}")
     public ResponseEntity<String> deleteProject(@PathVariable Long projectId){
         projectService.deleteProject(projectId);
         return new ResponseEntity<String>("Project Deleted successfully", HttpStatus.OK);

@@ -27,19 +27,19 @@ public class UserController {
     }
 
     // This method retrieves a user by their ID.
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<UserEntity> getUserByUserId(@PathVariable Long id){
         return ResponseEntity.ok(userService.getUserByUserId(id));
     }
 
     // This method updates a user.
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<UserEntity> updateUser(@PathVariable Long id, @RequestBody UserEntity updatedUser){
         return ResponseEntity.ok(userService.updateUser(id, updatedUser));
     }
 
     // This method deletes a user.
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id){
         userService.deleteUser(id);
         return new ResponseEntity<String>("User Deleted successfully", HttpStatus.OK);

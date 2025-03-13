@@ -15,6 +15,6 @@ This is a Spring Boot application for managing projects and tasks. It allows use
 - Maven (build tool)
 
 ## How to Run
-1. Clone the repository
+1. Clone the repository: git clone https://github.com/Shrasti0207/ProjectTaskManagementSystem.git
 2. Configure database
 3. Build and run the project

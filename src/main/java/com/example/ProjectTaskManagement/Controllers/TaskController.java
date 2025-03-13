@@ -29,26 +29,26 @@ public class TaskController {
     }
 
     // This method retrieves a task by its ID.
-    @GetMapping("{taskId}")
+    @GetMapping("/{taskId}")
     public ResponseEntity<Task> getTaskByTaskId(@PathVariable Long taskId){
         return ResponseEntity.ok(taskService.getTaskByTaskId(taskId));
     }
 
     // This method updates a task.
-    @PutMapping("{taskId}")
+    @PutMapping("/{taskId}")
     public ResponseEntity<Task> updateTask(@PathVariable Long taskId,@RequestBody Task updatedTask){
         return ResponseEntity.ok(taskService.updateTask(taskId, updatedTask));
     }
 
     // This method deletes a task.
-    @DeleteMapping("{taskId}")
+    @DeleteMapping("/{taskId}")
     public ResponseEntity<String> deleteTask(@PathVariable Long taskId){
         taskService.deleteTask(taskId);
         return new ResponseEntity<String>("Task Deleted successfully", HttpStatus.OK);
     }
 
     // This method updates the status of a task.
-    @PatchMapping("{taskId}")
+    @PatchMapping("/{taskId}")
     public ResponseEntity<Task> updateTaskStatus(@PathVariable Long taskId, @RequestBody Map<String, String> requestBody){
         String status = requestBody.get("status");
         return ResponseEntity.ok(taskService.updateTaskStatus(taskId, status));
