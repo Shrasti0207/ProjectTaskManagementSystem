@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-// Represents a user entity in the project Task Management system.
 @Entity
 public class UserEntity {
 
@@ -18,11 +17,19 @@ public class UserEntity {
     private String role;
     private Boolean active;
 
-    // Represents the projects associated with the user.
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_userId", referencedColumnName = "user_id")
     private List<Project> project = new ArrayList<>();
 
+    public UserEntity(){
+    }
+    public UserEntity(Long userId, String username, String email, String role, Boolean active) {
+        this.userId = userId;
+        this.username = username;
+        this.email = email;
+        this.role = role;
+        this.active = active;
+    }
     public List<Project> getProject() {
         return project;
     }
