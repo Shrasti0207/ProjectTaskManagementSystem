@@ -17,11 +17,10 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((requests)-> requests.requestMatchers(
-                "/users").authenticated()
-                .requestMatchers("/projects", "/tasks").permitAll());
-//        http.formLogin(formLogin -> formLogin.disable());
+                "/projects").authenticated()
+                .requestMatchers("/tasks").authenticated()
+                .requestMatchers("users").permitAll());
         http.formLogin(withDefaults());
-        // sent the credentials in the header
         http.httpBasic(withDefaults());
         return http.build();
     }
